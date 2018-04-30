@@ -26,13 +26,10 @@ int main(void) {
 
     for (char j = BYTE_LENGTH - 1; j >= 0; --j) {
       char valueBit = (valueByte >> j) & 1;
-      /*
-       * Send current bit value to serial output and
-       * make rising edge of shift register clock signal
-       * with only one I/O operation
-       */
-      PORTB = valueBit << SERIAL_OUTPUT_PIN
-        | _BV(SHIFT_REGISTER_CLK_PIN);
+      // Send current bit value to serial output
+      PORTB = valueBit << SERIAL_OUTPUT_PIN;
+      // Make a rising edge of clock signal
+      PORTB |= _BV(SHIFT_REGISTER_CLK_PIN);
       // Make a falling edge of shift register clock signal
       PORTB &= ~(_BV(SHIFT_REGISTER_CLK_PIN));
     }

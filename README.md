@@ -1,4 +1,4 @@
-# AVR
+# Programming Arduino Nano with AVRDUDE to drive a shift register
 
 ## Dependencies
 
@@ -9,7 +9,7 @@ sudo apt install avr-libc avrdude binutils-avr gcc-avr srecord
 ## Flashing
 
 ```sh
-make flash
+sudo make flash
 ```
 
 ## Reading
